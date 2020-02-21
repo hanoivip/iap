@@ -1,0 +1,39 @@
+.my-purchase {
+  margin-top: 100px;
+  margin-left: 10%;
+  height: 1000px;
+  width: 80%;
+}
+
+.my-purchase-item {
+  float: left;
+  border: 1px solid black;
+  /* Green */
+  padding: 20px 20px 20px 20px;
+  text-align: center;
+  width: 260px;
+  height: 260px;
+  min-width: 260px;
+  min-height: 260px;
+  font-size: 20px;
+}
+
+.my-purchase-item button {
+  background-color: green;
+  width: 50px;
+  height: 30px;
+  margin-top: 20px;
+}
+
+.my-purchase-item p {
+	color: green;
+    font-size: x-large;
+}
+
+.my-purchase-item img {
+	margin: auto;
+}
+
+.my-role-wizard button {
+	 background-color: green;
+}
