@@ -7,5 +7,5 @@ Route::middleware(['token'])->namespace('Hanoivip\Iap\Controllers')->prefix('api
 });
 
 Route::namespace('Hanoivip\Iap\Controllers')->prefix('api')->group(function () {
-    Route::get('/iap/query', 'GameController@getItems');
+    Route::get('/iap/query', 'AdminController@query');
 });
