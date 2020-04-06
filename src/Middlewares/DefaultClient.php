@@ -19,7 +19,9 @@ class DefaultClient
             }
             else
             {
-                $request->attributes->add(['client' => $default]);
+                $client = $request->get('client');
+                if (empty($client))
+                    $request->attributes->add(['client' => $default]);
                 return $next($request);
             }
         }
