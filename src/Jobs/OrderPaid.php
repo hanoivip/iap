@@ -2,7 +2,7 @@
 
 namespace Hanoivip\Iap\Jobs;
 
-use App\Models\Order;
+use Hanoivip\Iap\Models\Order;
 use Illuminate\Bus\Queueable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;
