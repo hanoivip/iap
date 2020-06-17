@@ -73,6 +73,7 @@ class GameController extends Controller
     {
         $client = $request->get('client');
         $cliOrder = $request->get('order');
+        //TODO: order already have item info
         $item = $request->get('item');
         $clientRec = $this->clientService->getRecord($client);
         if (empty($clientRec))
