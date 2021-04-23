@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
-use CurlHelper;
+use Mervick\CurlHelper;
 
 class OrderPaid implements ShouldQueue
 {
