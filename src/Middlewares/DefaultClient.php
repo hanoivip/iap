@@ -15,7 +15,7 @@ class DefaultClient
             $default = config('iap.default_client', '');
             if (empty($default))
             {
-                return response('Invalid client param', 500);
+                abort(500, 'Missing default client ID');
             }
             else
             {
