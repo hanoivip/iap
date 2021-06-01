@@ -64,7 +64,7 @@ class OrderPaid implements ShouldQueue
             $this->order->save();
             return;
         }
-        if ($response['data']['proc_ret'] != 0)
+        if ($response['data']['error'] != 0)
         {
             $this->order->callback_result = 4;
             $this->order->save();
