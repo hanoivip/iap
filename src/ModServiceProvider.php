@@ -20,7 +20,7 @@ class ModServiceProvider extends ServiceProvider
         $this->loadRoutesFrom(__DIR__ . '/../routes/web.php');
         $this->loadRoutesFrom(__DIR__ . '/../routes/api.php');
         $this->loadTranslationsFrom( __DIR__.'/../lang', 'hanoivip');
-        $this->mergeConfigFrom( __DIR__.'/../config/purchase.php', 'purchase');
+        $this->mergeConfigFrom( __DIR__.'/../config/iap.php', 'iap');
         $this->mergeConfigFrom( __DIR__.'/../config/paypal.php', 'paypal');
     }
 
