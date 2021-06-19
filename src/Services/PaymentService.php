@@ -11,9 +11,11 @@ class PaymentService
     public function allMethods($typeFilter = null, $idFilter = null)
     {
         $all = [];
-        $methods = config('purchase', []);
+        $methods = config('iap.methods', []);
         foreach ($methods as $type => $detail)
         {
+            if (empty($detail))
+                continue;
             if (isset($typeFilter) && $type != $typeFilter)
                 continue;
             $clazz = $detail['clazz'];
