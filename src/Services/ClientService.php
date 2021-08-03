@@ -2,7 +2,6 @@
 
 namespace Hanoivip\Iap\Services;
 
-
 use Hanoivip\Iap\Models\Client;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\DB;
@@ -28,11 +27,11 @@ class ClientService
      */
     public function getIapItems($client, $item = null)
     {
-        if (isset($item))
+        if (isset($item) && !empty($item))
         {
-            $items = collect([]);
+            $items = null;
             if (gettype($item) == "string")
-                $items = DB::table('client_iaps')->where('client_id', $client->id)->where('merchant_id', $item)->get();
+                $items = DB::table('client_iaps')->where('client_id', $client->id)->where('merchant_id', $item)->first();
             if (gettype($item) == "array")
                 $items = DB::table('client_iaps')->where('client_id', $client->id)->whereIn('merchant_id', $item)->get();
             return $items;

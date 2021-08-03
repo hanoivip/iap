@@ -2,7 +2,12 @@
 
 namespace Hanoivip\Iap;
 
+use Hanoivip\Iap\Services\IapService;
 use Illuminate\Support\ServiceProvider;
+use Hanoivip\Iap\Services\IOrderGenerator;
+use Hanoivip\Iap\Services\GameOrder;
+use Hanoivip\GameContracts\Contracts\IGameOperator;
+use Hanoivip\Iap\Services\SelfOrder;
 
 class ModServiceProvider extends ServiceProvider
 {
@@ -21,12 +26,18 @@ class ModServiceProvider extends ServiceProvider
         $this->loadRoutesFrom(__DIR__ . '/../routes/api.php');
         $this->loadTranslationsFrom( __DIR__.'/../lang', 'hanoivip');
         $this->mergeConfigFrom( __DIR__.'/../config/iap.php', 'iap');
-        $this->mergeConfigFrom( __DIR__.'/../config/paypal.php', 'paypal');
     }
 
     public function register()
     {
         $this->commands([
         ]);
+        $this->app->bind("LocalIapService", IapService::class);
+        $this->app->bind(IOrderGenerator::class, function () {
+            $order = config('iap.order');
+            if ($order == 'game')
+                return new GameOrder($this->app->make(IGameOperator::class));
+            return new SelfOrder();
+        });
     }
 }

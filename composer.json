@@ -2,13 +2,21 @@
     "name": "hanoivip/iap",
     "type": "library",
     "license": "MIT",
+	"repositories" : [{
+			"type" : "path",
+			"url" : "../payment-contract",
+			"options" : {
+				"symlink" : true
+			}
+		}
+	],	
     "require": {
 		"php" : ">=7.0.0",
 		"guzzlehttp/guzzle" : "^6.3",
 		"laravel/framework" : ">=5.5",
 		"laravel/tinker" : "~1.0",
 		"mervick/curl-helper" : "^2.2",
-		"paypal/rest-api-sdk-php": "^1.14"
+		"hanoivip/payment-contract": "dev-master"
 	},
 	"autoload" : {
 		"psr-4" : {
