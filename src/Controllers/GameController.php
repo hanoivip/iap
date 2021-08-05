@@ -44,7 +44,7 @@ class GameController extends Controller
         }
         $items = $this->clientService->getIapItems($clientRec);
         if ($request->ajax())
-            return ['error' => 1, 'message' => 'invalid client', 'data' => ['items' => $items]];
+            return ['error' => 0, 'message' => 'success', 'data' => ['items' => $items]];
         else
             return view('hanoivip::purchase-iap', ['items' => $items, 'client' => $client]);
     }
