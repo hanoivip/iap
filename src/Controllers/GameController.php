@@ -59,7 +59,7 @@ class GameController extends Controller
         {
             $order = $this->iapService->order(Auth::user(), $svname, $role, $item, $client);
             return ['error' => 0, 'message' => __('hanoivip::order.success'),
-                'data' =>[['item' => $item, 'order' => $order]]];
+                'data' =>['item' => $item, 'order' => $order]];
         }
         catch (Exception $ex)
         {
