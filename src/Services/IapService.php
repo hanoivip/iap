@@ -41,10 +41,11 @@ class IapService
      * @param string $item
      * @return string
      */
-    public function order($user, $server, $role, $item)
+    public function order($user, $server, $role, $item, $client = null)
     {
         $order = $this->generator->generate($user, $server, $role, $item);
-        $client = config('iap.default_client', '');
+        if (!isset($client) || empty($client))
+            $client = config('iap.default_client', '');
         $clientRec = $this->clients->getRecord($client);
         $itemRec = $this->clients->getIapItems($clientRec, $item);
         //Log::debug("Create new order " . print_r($itemRec, true));
