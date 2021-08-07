@@ -7,6 +7,4 @@ Route::namespace('Hanoivip\Iap\Controllers')->group(function () {
     // Decide to buy an item
     Route::get('/iap/confirm', 'GameController@askConfirm');
     //Route::any('/iap/purchase-item', 'GameController@doPurchase')->name('purchase.do');
-    //Route::any('/iap/paypal/return', 'PaypalController@return')->name('paypal.return');
-    //Route::any('/iap/paypal/cancel', 'PaypalController@cancel')->name('paypal.cancel');
 });

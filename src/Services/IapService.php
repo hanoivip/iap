@@ -48,7 +48,7 @@ class IapService
             $client = config('iap.default_client', '');
         $clientRec = $this->clients->getRecord($client);
         $itemRec = $this->clients->getIapItems($clientRec, $item);
-        //Log::debug("Create new order " . print_r($itemRec, true));
+        //Log::debug("Create new order " . $order . '@' . print_r($itemRec, true));
         $log = new Order();
         $log->order = $order;
         $log->client_id = $clientRec->id;
