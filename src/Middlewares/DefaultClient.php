@@ -19,9 +19,9 @@ class DefaultClient
             }
             else
             {
-                $client = $request->get('client');
+                $client = $request->input('client');
                 if (empty($client))
-                    $request->attributes->add(['client' => $default]);
+                    $request->merge(['client' => $default]);
                 return $next($request);
             }
         }
