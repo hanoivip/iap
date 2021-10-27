@@ -24,7 +24,7 @@ class IapService
      * @param string $client
      * @return array ClientIap to array
      */
-    public function items($client = null)
+    public function items($client = 'app')
     {
         if (!isset($client) || empty($client))
         {
@@ -41,7 +41,7 @@ class IapService
      * @param string $item
      * @return string
      */
-    public function order($user, $server, $role, $item, $client = null)
+    public function order($user, $server, $role, $item, $client = 'app')
     {
         $order = $this->generator->generate($user, $server, $role, $item);
         if (!isset($client) || empty($client))
