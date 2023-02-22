@@ -24,7 +24,7 @@ class IapService
      * @param string $client
      * @return array ClientIap to array
      */
-    public function items($client = 'app')
+    public function items($client)
     {
         if (!isset($client) || empty($client))
         {
@@ -41,7 +41,7 @@ class IapService
      * @param string $item
      * @return string
      */
-    public function order($user, $server, $role, $item, $client = 'app')
+    public function order($user, $server, $role, $item, $client)
     {
         $order = $this->generator->generate($user, $server, $role, $item);
         if (!isset($client) || empty($client))
@@ -54,6 +54,7 @@ class IapService
         $log->client_id = $clientRec->id;
         $log->item = $item;
         $log->item_price = $itemRec->price;
+        $log->item_currency = $itemRec->currency;
         $log->user = $user->getAuthIdentifier();
         $log->server = $server;
         $log->role = $role;
